@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo {
+    width: 210px;
+    height: auto;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+/* Botón del formulario */
+button[type="submit"] {
+    background-color: #16644f; /* Color oscuro en estado normal */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+button[type="submit"]:hover {
+    background-color: #77b6b7; /* Color claro en hover */
+}
+
+/* Estilo uniforme para labels */
+label {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+/* Estilo uniforme para campos de texto y contraseña */
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 6px 0 20px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}

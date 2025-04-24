@@ -1,0 +1,72 @@
+-----Código list-recomendaciones.jsp borrado:-----
+
+<div class="container">
+  <h1>Listado de Recomendaciones</h1>
+  <p>
+    <a href="recomendacion?action=new">Crear nueva recomendacion</a>
+  </p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+    <%
+      List<Recomendacion> listaRecomendaciones =
+              (List<Recomendacion>) request.getAttribute("listaRecomendaciones");
+
+      if (listaRecomendaciones != null) {
+        for (Recomendacion inv : listaRecomendaciones) {
+    %>
+    <tr>
+      <td><%= inv.getIdRecomendacion() %></td>
+      <td><%= inv.getNombre() %></td>
+      <td><%= inv.getDescripcion() %></td>
+      <td>
+        <a href="recomendacion?action=edit&id=<%= inv.getIdRecomendacion() %>">Editar</a> |
+        <a href="recomendacion?action=delete&id=<%= inv.getIdRecomendacion() %>"
+           onclick="return confirm('¿Deseas eliminar esta recomendación?');">
+          Eliminar
+        </a>
+      </td>
+    </tr>
+    <%
+        }
+      }
+    %>
+  </table>
+</div>
+
+
+----Codigo de recomendacion-form.jsp:----
+
+<div class="container">
+      <h1><%= isEdit ? "Editar Recomendacion" : "Nuevo Recomendacion" %></h1>
+
+      <form action="recomendacion" method="post">
+        <input type="hidden" name="action" value="save" />
+
+        <% if (isEdit) { %>
+        <input type="hidden" name="idRecomendacion" value="<%= recomendacion.getIdRecomendacion() %>" />
+        <% } %>
+
+        <p>
+          <label>Nombre:</label><br />
+          <input type="text" name="nombre"
+                 value="<%= isEdit ? recomendacion.getNombre() : "" %>" required />
+        </p>
+
+        <p>
+          <label>Descripción:</label><br />
+          <textarea name="descripcion" rows="4">
+                    <%= isEdit ? recomendacion.getDescripcion() : "" %>
+                </textarea>
+        </p>
+
+        <button type="submit">Guardar</button>
+      </form>
+
+      <p><a href="recomendacion?action=list">Regresar al listado</a></p>
+    </div>
+
