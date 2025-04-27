@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `trueconnect_bbdd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `trueconnect_bbdd`;
 -- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
 --
 -- Host: localhost    Database: trueconnect_bbdd
@@ -26,6 +28,7 @@ CREATE TABLE `recomendaciones` (
   `idrecomendaciones` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(500) DEFAULT NULL,
+  `idrecoregistros` int NOT NULL,
   PRIMARY KEY (`idrecomendaciones`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +39,7 @@ CREATE TABLE `recomendaciones` (
 
 LOCK TABLES `recomendaciones` WRITE;
 /*!40000 ALTER TABLE `recomendaciones` DISABLE KEYS */;
-INSERT INTO `recomendaciones` VALUES (7,'Lectura al aire libre en el parque','Disfruta de una tarde de lectura rodeado de naturaleza en un parque cercano. \r\n  '),(8,'Taller de escritura terapéutica','Escribe sobre tus emociones, reflexiona y libera tensiones mientras exploras el arte de expresarte a través de las palabras.'),(9,'Clase de maquillaje natural','Aprende técnicas de maquillaje con productos naturales para resaltar tu belleza sin perder la esencia de tu piel, mientras disfrutas de un ambiente relajado y creativo.\r\n  '),(10,'Sesión de Yoga al amanecer','Disfruta de una clase de yoga al aire libre, guiada por un instructor experimentado, para empezar el día con energía positiva y plena conexión mente-cuerpo.');
+INSERT INTO `recomendaciones` VALUES (7,'Lectura al aire libre en el parque','Disfruta de una tarde de lectura rodeado de naturaleza en un parque cercano. \r\n  ',0),(8,'Taller de escritura terapéutica','Escribe sobre tus emociones, reflexiona y libera tensiones mientras exploras el arte de expresarte a través de las palabras.',0),(9,'Clase de maquillaje natural','Aprende técnicas de maquillaje con productos naturales para resaltar tu belleza sin perder la esencia de tu piel, mientras disfrutas de un ambiente relajado y creativo.\r\n  ',0),(10,'Sesión de Yoga al amanecer','Disfruta de una clase de yoga al aire libre, guiada por un instructor experimentado, para empezar el día con energía positiva y plena conexión mente-cuerpo.',0);
 /*!40000 ALTER TABLE `recomendaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,32 +70,7 @@ INSERT INTO `registros` VALUES (1,'ejemplouser01','123456789'),(2,'ejemplouser02
 UNLOCK TABLES;
 
 --
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'trueconnect_bbdd'
+-- Dumping events for database 'trueconnect_bbdd'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -104,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-25  0:57:12
+-- Dump completed on 2025-04-27 12:56:17
